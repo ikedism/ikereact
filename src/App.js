@@ -76,7 +76,7 @@ function App() {
     setStudents(
       students.map(student => {
         if (student.id === studentId) {
-          student.name = inputVal;
+          student.age = student.age +1;
         }
         return student;
       })
@@ -93,6 +93,14 @@ function App() {
 
   /*-----------------年齢の値を1増やす処理----------------*//////////////////////////変更点
   const plusStudent = async studentId => {
+    setStudents(
+      students.map(student => {
+        if (student.id === studentId) {
+          student.age = student.age +1;
+        }
+        return student;
+      })
+    );
     const studentDoc = await firebaseApp
       .firestore()
       .collection("students")
@@ -104,7 +112,15 @@ function App() {
   };
 
   /*-----------------年齢の値を1減らす処理----------------*//////////////////////////変更点
-  const minusStudent = async (studentId, val) => {
+  const updatestudentAge = async (studentId, val) => {
+    setStudents(
+      students.map(student => {
+        if (student.id === studentId) {
+          student.age = student.age + val;
+        }
+        return student;
+      })
+    );
     const studentDoc = await firebaseApp
       .firestore()
       .collection("students")
@@ -169,7 +185,7 @@ function App() {
         students={students}
         updateStudent={updateStudent}
         plusStudent={plusStudent}/////////////////////////変更点
-        minusStudent={minusStudent}/////////////////////////変更点
+        updatestudentAge={updatestudentAge}/////////////////////////変更点
         pageNationStudent={pageNationStudent}
       />
       <div className="pageNationButton">

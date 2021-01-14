@@ -21,7 +21,7 @@ export const Table = ({
   deleteStudent,
   updateStudent,
   plusStudent,//////////////////////////////////////変更点
-  minusStudent,///////////////////////////////////////変更点
+  updatestudentAge,///////////////////////////////////////変更点
   pageNationStudent
 }) => {
   let chankArray = pageNationStudent();
@@ -71,7 +71,7 @@ export const Table = ({
                   <Button
                     onClick={e => {
                       e.preventDefault();
-                      minusStudent(s.id, 1);
+                      plusStudent(s.id, 1);
                       console.log("CLICKED");
                     }}
                     title="plus[＋]"
@@ -79,7 +79,7 @@ export const Table = ({
                   <Button
                     onClick={e => {
                       e.preventDefault();
-                      minusStudent(s.id, -1);
+                      updatestudentAge(s.id, -1);
                       console.log("CLICKED");
                     }}
                     title="minus[ー]"
